@@ -78,9 +78,8 @@
             grid-row: span 2;
         }
 
-        /* Updated Case Study Card Layout */
         .card-case-study {
-            grid-column: span 2; /* Increased span to accommodate two columns */
+            grid-column: span 2;
             flex-direction: row;
             align-items: center;
             gap: 1.5rem;
@@ -213,42 +212,37 @@
             border-radius: 0.75rem;
         }
 
-        /* Responsiveness */
         @media (max-width: 768px) {
             .bento-grid {
                 grid-template-columns: 1fr;
                 gap: 0.75rem;
             }
-
             .bento-card {
                 grid-column: span 1 !important;
                 grid-row: span 1 !important;
                 flex-direction: column;
             }
-            
             .card-case-study {
                 text-align: center;
             }
-
             .case-study-action {
                 margin-top: 1rem;
             }
-
             body {
                 padding: 0.75rem;
             }
-            
             .profile-name {
                 font-size: 2rem;
             }
-
             .location-time {
                 font-size: 2rem;
             }
         }
     </style>
 </head>
-<<a href="https://aizatulmunirah7-source.github.io" style="position:absolute; top:20px; left:20px;">← Back to Home</a>>
+<body>
+
+    <a href="https://aizatulmunirah7-source.github.io" style="position:absolute; top:20px; left:20px; text-decoration: none; color: var(--color-accent); font-weight: 600;">← Back to Home</a>
 
     <div class="container">
         <div class="bento-grid">
@@ -295,7 +289,7 @@
                     <div class="card-text">Analyzing texture profiles and structural changes of Kuih Lapis using rheological methods.</div>
                 </div>
                 <div class="case-study-action">
-                    <a href="[PASTE YOUR APP URL HERE]" class="app-button">Try My Focus Timer App</a>
+                    <a href="app.html" class="app-button">Try My Focus Timer App</a>
                 </div>
             </div>
 
