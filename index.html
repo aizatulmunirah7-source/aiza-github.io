@@ -16,6 +16,8 @@
             --color-accent: #0077b6; 
             --border-radius: 1rem;
             --padding: 1.5rem;
+            --lofi-bg: #f0e6ef;
+            --lofi-accent: #b8bedd;
         }
 
         * {
@@ -64,42 +66,19 @@
         }
 
         /* Card Sizing */
-        .card-profile {
-            grid-column: span 2;
-            grid-row: span 2;
-        }
+        .card-profile { grid-column: span 2; grid-row: span 2; }
+        .card-location { grid-column: span 1; }
+        .card-tech-stack { grid-column: span 1; grid-row: span 2; }
+        .card-hobby { grid-column: span 1; }
+        .card-playlist { grid-column: span 4; min-height: 80px; }
 
-        .card-location {
-            grid-column: span 1;
-        }
-        
-        .card-tech-stack {
-            grid-column: span 1;
-            grid-row: span 2;
-        }
-
+        /* Case Study Card with New Column */
         .card-case-study {
             grid-column: span 2;
-            flex-direction: row;
+            display: grid;
+            grid-template-columns: 1fr auto;
             align-items: center;
             gap: 1.5rem;
-        }
-
-        .case-study-content {
-            flex: 1;
-        }
-
-        .case-study-action {
-            flex-shrink: 0;
-        }
-
-        .card-hobby {
-            grid-column: span 1;
-        }
-
-        .card-playlist {
-            grid-column: span 4;
-            min-height: 80px; 
         }
 
         /* Button Styling */
@@ -107,82 +86,34 @@
             display: inline-block;
             background-color: var(--color-accent);
             color: white;
-            padding: 0.75rem 1.25rem;
-            border-radius: 0.6rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 0.75rem;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
             transition: all 0.3s ease;
             white-space: nowrap;
-            border: 2px solid transparent;
+            border: 2px solid var(--color-accent);
+            text-align: center;
         }
 
         .app-button:hover {
             background-color: transparent;
             color: var(--color-accent);
-            border-color: var(--color-accent);
             transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 119, 182, 0.2);
         }
 
         /* Content Styling */
-        .card-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--color-text);
-        }
+        .card-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--color-text); }
+        .card-text { color: var(--color-subtle-text); font-size: 0.9rem; }
+        .profile-name { font-size: 2.5rem; font-weight: 800; line-height: 1; margin-bottom: 0.5rem; }
+        .profile-details { font-size: 1.1rem; font-weight: 500; color: var(--color-accent); margin-bottom: 1rem; }
+        .profile-tagline { font-size: 1.2rem; font-style: italic; color: var(--color-subtle-text); margin-bottom: 1rem; }
 
-        .card-text {
-            color: var(--color-subtle-text);
-            font-size: 0.9rem;
-        }
+        .location-time { font-size: 2.5rem; font-weight: 700; color: var(--color-text); margin-top: auto; }
 
-        .profile-name {
-            font-size: 2.5rem;
-            font-weight: 800;
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-        
-        .profile-details {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--color-accent);
-            margin-bottom: 1rem;
-        }
-
-        .profile-tagline {
-            font-size: 1.2rem;
-            font-style: italic;
-            color: var(--color-subtle-text);
-            margin-bottom: 1rem;
-        }
-
-        .social-links a {
-            color: var(--color-subtle-text);
-            text-decoration: none;
-            margin-right: 1rem;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
-
-        .social-links a:hover {
-            color: var(--color-accent);
-        }
-
-        .location-time {
-            font-size: 2.5rem;
-            font-weight: 700;
-            line-height: 1;
-            color: var(--color-text);
-            margin-top: auto; 
-        }
-
-        .subject-list {
-            list-style: none;
-            padding: 0;
-        }
-
+        .subject-list { list-style: none; padding: 0; }
         .subject-list li {
             background-color: var(--color-bg);
             padding: 0.5rem 0.75rem;
@@ -192,13 +123,9 @@
             font-weight: 500;
             display: inline-block;
             margin-right: 0.5rem;
-            color: var(--color-text);
         }
         
-        .accent-text {
-            color: var(--color-accent);
-            font-weight: 600;
-        }
+        .accent-text { color: var(--color-accent); font-weight: 600; }
         
         .playlist-placeholder {
             display: flex;
@@ -208,41 +135,18 @@
             font-weight: 500;
             color: var(--color-subtle-text);
             background-color: var(--color-bg);
-            padding: 0.5rem;
             border-radius: 0.75rem;
         }
 
         @media (max-width: 768px) {
-            .bento-grid {
-                grid-template-columns: 1fr;
-                gap: 0.75rem;
-            }
-            .bento-card {
-                grid-column: span 1 !important;
-                grid-row: span 1 !important;
-                flex-direction: column;
-            }
-            .card-case-study {
-                text-align: center;
-            }
-            .case-study-action {
-                margin-top: 1rem;
-            }
-            body {
-                padding: 0.75rem;
-            }
-            .profile-name {
-                font-size: 2rem;
-            }
-            .location-time {
-                font-size: 2rem;
-            }
+            .bento-grid { grid-template-columns: 1fr; }
+            .bento-card { grid-column: span 1 !important; grid-row: span 1 !important; }
+            .card-case-study { grid-template-columns: 1fr; text-align: center; }
         }
     </style>
 </head>
-<body>
 
-    <a href="https://aizatulmunirah7-source.github.io" style="position:absolute; top:20px; left:20px; text-decoration: none; color: var(--color-accent); font-weight: 600;">← Back to Home</a>
+    <a href="https://aizatulmunirah7-source.github.io" style="position:absolute; top:20px; left:20px; text-decoration: none; color: var(--color-accent); font-weight: bold;">← Back to Home</a>
 
     <div class="container">
         <div class="bento-grid">
@@ -251,59 +155,48 @@
                 <div>
                     <div class="card-text">STUDENT PROFILE</div>
                     <div class="profile-name">AIZATUL MUNIRAH</div>
-                    <div class="profile-details">
-                        <span class="accent-text">Science Agrotechnology</span> | Year 1
-                    </div>
-                    <div class="profile-tagline">
-                        "Innovating Plant Growth."
-                    </div>
+                    <div class="profile-details"><span class="accent-text">Science Agrotechnology</span> | Year 1</div>
+                    <div class="profile-tagline">"Innovating Plant Growth."</div>
                 </div>
-                <div class="social-links">
-                    <a href="#" target="_blank">LinkedIn</a>
-                    <a href="#" target="_blank">GitHub</a>
-                    <a href="#" target="_blank">UMT Portal</a>
-                </div>
+                <div class="card-text">LinkedIn • GitHub • UMT Portal</div>
             </div>
 
             <div class="bento-card card-location">
                 <div class="card-text">CAMPUS LOCATION</div>
                 <div>UMT <span class="accent-text">Kuala Nerus</span></div>
-                <div class="location-time" id="current-time"></div> 
+                <div class="location-time" id="current-time">--:--</div> 
             </div>
 
             <div class="bento-card card-tech-stack">
-                <div class="card-title">Key Modules & Skills</div>
+                <div class="card-title">Key Modules</div>
                 <ul class="subject-list">
                     <li>Soil Science</li>
                     <li>Microbiology</li>
                     <li>Excel</li>
                     <li>Lab Analysis</li>
                 </ul>
-                <div class="card-text">Focusing on applied agricultural and scientific techniques.</div>
             </div>
 
             <div class="bento-card card-case-study">
                 <div class="case-study-content">
                     <div class="card-text">LATEST PROJECT</div>
                     <div class="card-title">Starch Gelatinization in Local Kuih</div>
-                    <div class="card-text">Analyzing texture profiles and structural changes of Kuih Lapis using rheological methods.</div>
+                    <div class="card-text">Analyzing texture profiles of Kuih Lapis using rheological methods.</div>
                 </div>
                 <div class="case-study-action">
-                    <a href="app.html" class="app-button">Try My Focus Timer App</a>
+                    <a href="[PASTE YOUR APP URL HERE]" class="app-button">Try My Focus Timer App</a>
                 </div>
             </div>
 
             <div class="bento-card card-hobby">
                 <div class="card-text">CAMPUS DOWNTIME</div>
                 <div class="card-title">Playing Puzzles</div>
-                <div class="card-text">A relaxing campus activity for improving spatial reasoning and focus.</div>
+                <div class="card-text">Improving spatial reasoning and focus.</div>
             </div>
             
             <div class="bento-card card-playlist">
                 <div class="card-title">Study Vibes Playlist</div>
-                <div class="playlist-placeholder">
-                    [Placeholder for Embedded Music Player or Ambient Track]
-                </div>
+                <div class="playlist-placeholder"> [Ambient Lo-Fi Track Loaded] </div>
             </div>
 
         </div>
@@ -313,12 +206,9 @@
         function updateTime() {
             const timeElement = document.getElementById('current-time');
             const now = new Date();
-            const timeString = now.toLocaleTimeString('en-US', { 
-                hour: '2-digit', 
-                minute: '2-digit',
-                hour12: true 
+            timeElement.textContent = now.toLocaleTimeString('en-US', { 
+                hour: '2-digit', minute: '2-digit', hour12: true 
             });
-            timeElement.textContent = timeString;
         }
         updateTime();
         setInterval(updateTime, 60000); 
